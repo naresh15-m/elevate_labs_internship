@@ -5,7 +5,7 @@ A simple command-line calculator application built with Python.
 ## Features
 
 - Basic arithmetic operations:
-  - Addition (+)
+  - Addition (+) 
   - Subtraction (-)
   - Multiplication (×)
   - Division (÷)
