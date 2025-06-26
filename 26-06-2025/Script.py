@@ -9,13 +9,11 @@ def scrape_news_headlines(url, output_file):
             'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.124 Safari/537.36'
         }
         response = requests.get(url, headers=headers)
-        response.raise_for_status()  # Raise an error for bad status codes
+        response.raise_for_status()  # To Raise an error for bad status
 
         # Parse the HTML content
         soup = BeautifulSoup(response.text, 'html.parser')
 
-        # Find all headline elements - targeting Indian Express structure
-        # Main headlines are typically in h2 elements with class 'title'
         headlines = soup.find_all(['h2', 'h3'],
                                   class_=lambda x: x and ('title' in x.lower() or 'headline' in x.lower()))
 
@@ -25,10 +23,10 @@ def scrape_news_headlines(url, output_file):
 
         # Extract text from headlines and clean it
         cleaned_headlines = []
-        seen_headlines = set()  # To avoid duplicates
+        seen_headlines = set()  #To avoid duplicates we'll use set set never allow duplicates
         for headline in headlines:
             text = headline.get_text().strip()
-            if text and text not in seen_headlines:  # Only add non-empty, unique headlines
+            if text and text not in seen_headlines:
                 cleaned_headlines.append(text)
                 seen_headlines.add(text)
 
@@ -46,10 +44,7 @@ def scrape_news_headlines(url, output_file):
 
 
 if __name__ == "__main__":
-    # URL of the Indian Express website
     news_url = input("Enter the url of the website=")
-    # Output file name
     output_filename = "indian_express_headlines.txt"
-
     # Run the scraper
     scrape_news_headlines(news_url, output_filename)
