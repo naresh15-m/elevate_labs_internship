@@ -1,0 +1,29 @@
+{% extends "base.html" %}
+
+{% block content %}
+<section class="hero">
+    <div class="hero-content">
+        <h2>Welcome to My Portfolio</h2>
+        <p>Recent graduate with a strong passion for writing efficient code and solving complex problems.</p>
+        <a href="{{ url_for('about') }}" class="btn">Learn More About Me</a>
+    </div>
+</section>
+
+<section class="highlights">
+    <div class="highlight-card">
+        <h3>Education</h3>
+        <p>B.Tech from JNTUA College of Engineering</p>
+        <a href="{{ url_for('education') }}">View Details</a>
+    </div>
+    <div class="highlight-card">
+        <h3>Skills</h3>
+        <p>Python, Django, Full Stack Development</p>
+        <a href="{{ url_for('skills') }}">View Details</a>
+    </div>
+    <div class="highlight-card">
+        <h3>Experience</h3>
+        <p>Python Developer Intern at Elevate Labs</p>
+        <a href="{{ url_for('experience') }}">View Details</a>
+    </div>
+</section>
+{% endblock %}
